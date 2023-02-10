@@ -39,8 +39,7 @@ PRODUCT_COPY_FILES += device/Xiaoxun/MiKidsWatch_F3/prebuilt/zImage-dtb:kernel
 PRODUCT_PACKAGES += \
     $(DEVICE_PATH)/recovery/root/init.recovery.mt6739.rc:root/init.recovery.mt6739.rc \
     $(DEVICE_PATH)/recovery/root/ueventd.mt6739.rc:root/ueventd.mt6739.rc \
-    $(DEVICE_PATH)/recovery/root/init.recovery.usb.rc:root/init.recovery.usb.rc \
-    $(DEVICE_PATH)/recovery/root/init.recovery.service.rc:root/init.recovery.service.rc
+    $(DEVICE_PATH)/recovery/root/init.recovery.usb.rc:root/init.recovery.usb.rc
 
 #Allow_missing_dependencies
 ALLOW_MISSING_DEPENDENCIES=true

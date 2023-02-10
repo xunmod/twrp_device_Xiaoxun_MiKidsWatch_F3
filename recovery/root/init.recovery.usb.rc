@@ -7,24 +7,29 @@ on fs
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+    write /sys/devices/platform/mt_usb/cmode 1
 
 on property:sys.usb.config=none
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/bDeviceClass 0
+    write /sys/devices/platform/mt_usb/cmode 2
 
 on property:sys.usb.config=mass_storage,adb
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/class/android_usb/android0/enable 1
+    write /sys/devices/platform/mt_usb/cmode 1
 
 on property:sys.usb.config=mtp,adb
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/class/android_usb/android0/enable 1
+    write /sys/devices/platform/mt_usb/cmode 1
     start adbd
 
 on property:sys.usb.config=adb
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/class/android_usb/android0/enable ${service.adb.root}
+    write /sys/devices/platform/mt_usb/cmode 1
     start adbd
